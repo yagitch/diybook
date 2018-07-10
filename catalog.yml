@@ -1,9 +1,13 @@
 PREDEF:
+  - chapter0.re
 
 CHAPS:
-  - diybook.re
+  - chapter1.re
+  - chapter2.re
+  - chapter3.re
 
 APPENDIX:
 
 POSTDEF:
-
+  - chapter4.re
+  - info.re
