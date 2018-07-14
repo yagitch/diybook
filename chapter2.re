@@ -4,10 +4,11 @@
 
 //image[2-0-1][論理構成図(仮)][scale=0.8]
 
-「アレクサ、ライトをオンにして」→Hueの明かりが点く@<br>{}
-「アレクサ、ライトをオフにして」→Hueが明かりが消える
+ * 「アレクサ、ライトをオンにして」→Hueの明かりが点く
+ * 「アレクサ、ライトをオフにして」→Hueが明かりが消える
 
 本書で使用しているスクリプトは GitHub にも公開しています。
+
 @<href>{https://github.com/yagitch/auto/}
 
 我が家は 1K のひとり暮らしなのでリビングと寝室の区別がありませんが、別々でお持ちの方はまずリビングの照明で作ってみましょう。
@@ -31,9 +32,9 @@
 
 == Node-RED を起動する
 
-Raspberry Pi の標準 OS の1つである Raspbian には Node-RED が入っています（2016年11月リリース版以降）。もし GUI が使える場合は Node-RED アイコンから起動して、ブラウザから http://localhost:1880/ でアクセス可能になります。あるいは、ヘッドレス環境でコンソールのみ使える場合は node-red-start コマンドで起動するか、systemctl で自動起動を有効にすれば LAN 内の他ノードのブラウザから1880番ポートにアクセス可能になります。詳しくは Node-RED 公式の解説記事をご覧ください。とても分かりやすいです。
+Raspberry Pi の標準 OS の1つである Raspbian には Node-RED が入っています（2016年11月リリース版以降）。もし GUI が使える場合は Node-RED アイコンから起動して、ブラウザから http://localhost:1880/ でアクセス可能になります。あるいは、ヘッドレス環境でコンソールのみ使える場合は node-red-start コマンドで起動するか、systemctl で自動起動を有効にすれば LAN 内の他ノードのブラウザから1880番ポートにアクセス可能になります。詳しくは Node-RED 公式の解説記事@<fn>{site}をご覧ください。とても分かりやすいです。
 
-@<href>{https://nodered.jp/docs/hardware/raspberrypi}
+//footnote[site][https://nodered.jp/docs/hardware/raspberrypi]
 
 Node-RED の初期画面(@<img>{2-2-1})が表示できたら次に進みます。
 
@@ -74,10 +75,8 @@ Description: Hue とシーリングライトを操作します
 
 == Amazon Alexa アプリで Node-RED スキルをインストールする
 
-スマートフォンで Amazon Alexa アプリを起動します。まだアプリが入っていなければ、App Store アプリまたは Google Play アプリで「 Amazon Alexa 」を検索してインストールします。以降、Amazon Echo dot を操作するためにはすべてこのスマートフォンアプリが必要になりますので、Amazon Echo dot の初期セットアップが既に完了しているものとして説明していきます。
-
-Amazon Alexa アプリ起動後、メニューから「スキル」画面に移動し、検索欄から「 Node-RED 」を探します。
-（※本書では iOS 版アプリで説明します。Android 版も利用可能です）
+スマートフォン（iOS または Android）で Amazon Alexa アプリを起動します。メニューから「スキル」画面に移動し、検索欄から「 Node-RED 」を探します。
+（※本書では iOS 版アプリの画像を使っていますが、Android 版も利用可能です）
 
 （画像： Node-RED スキルの画像）
 
