@@ -34,7 +34,7 @@
 
 == Node-RED を起動する
 
-Raspberry Pi の標準 OS の1つである Raspbian には初期インストール状態で Node-RED が入っています（2016年11月リリース版以降）。もし GUI が使える場合は Node-RED アイコンから起動して、ブラウザから http://localhost:1880/ でアクセス可能になります。あるいは、ヘッドレス環境でコンソールのみ使える場合は node-red-start コマンドで起動するか、systemctl で自動起動を有効にすれば LAN 内の他ノードのブラウザから1880番ポートにアクセス可能になります。詳しくは Node-RED 公式の解説記事@<fn>{site}をご覧ください。とても分かりやすいです。
+Raspberry Pi の標準 OS の1つである Raspbian には初期インストール状態で Node-RED が入っています（2016年11月リリース版以降）。GUI の場合は Node-RED アイコンから起動して、ブラウザから http://localhost:1880/ でアクセス可能になります。コンソールの場合は node-red-start コマンドで起動するか、systemctl で自動起動を有効にすれば LAN 内の他ノードのブラウザから1880番ポートにアクセス可能になります。詳しくは Node-RED 公式の解説記事@<fn>{site}をご覧ください。とても分かりやすいです。
 
 //footnote[site][https://nodered.jp/docs/hardware/raspberrypi]
 
@@ -44,36 +44,40 @@ Node-RED の初期画面(@<img>{2-2-1})が表示できたら次に進みます�
 
 == Node-RED Alexa Home Skill Bridge に登録する
 
-以下のサイトにアクセスし、ユーザ登録します。これは Amazon Alexa から Node-RED に命令を伝えるためのブリッジです。アカウントの登録・維持に費用はかかりません。
+以下のサイトにアクセスし、ユーザ登録します。これは Amazon Alexa から Node-RED に命令を伝えるためのブリッジです。アカウントの登録・維持に費用はかかりません。個人で運営されているようです。
 
 @<href>{https://alexa-node-red.bm.hardill.me.uk/}
 
 //image[2-3-1][Node-RED Alexa Home Skill Bridge のトップページ][scale=0.8]
 
-#@# FIXME: 画像にブラウザの枠を入れること、表示崩れを改善すること
+「 Register 」をクリックするとユーザ登録画面が出てきます。登録が完了するとログイン状態になります。
+
+//image[2-3-2][Node-RED Alexa Home Skill Bridge の新規ユーザ登録ページ]
 
 == Node-RED Alexa Home Skill Bridge でデバイスを追加する
 
-ユーザ登録してから「 Devices 」画面に移動すると、ブリッジして動かすためのデバイス追加ができます。
+「 Devices 」画面に移動すると、ブリッジして動かすためのデバイス追加ができます。
 
-（画像：まっさらな Devices 画面）
+//image[2-4-1][まっさらな Devices 画面]
 
 まずは照明を追加してみましょう。「 Add device 」をクリックすると「 Add new device 」と書かれた入力画面がポップアップします。
 
-（画像： Add new device 画面）
+//image[2-4-2][Add new device 画面]
 
 以下のように入力します。
 
 Name: ライト@<br>{}
-Description: Hue とシーリングライトを操作します
+Description: Hue とシーリングライトを操作します@<br>{}
+Actions は On と Off にチェックを入れる
+Application Type は LIGHT にチェックを入れる
 
-（画像：入力している画面）
+//image[2-4-3][入力している画面]
 
 ここで名付けたものが実際に Amazon Alexa に呼びかけるスキル名になります。ここでは「ライト」と名付けたので「アレクサ、ライトをオンにして」などと命令することになります。“明かり”や“照明”といった分かりやすい別の単語にしてもかまいません。（もちろん、複数設定を入れて、どのように言っても反応するようにもできます）
 
 入力が完了するとこのような画面になります。
 
-（画像：入力完了画面）
+//image[2-4-4][入力完了画面]
 
 == Amazon Alexa アプリで Node-RED スキルをインストールする
 
@@ -110,6 +114,8 @@ https://www.meethue.com/api/nupnp
 == Node-RED 上で Amazon Alexa とスクリプトを繋げる
 
 Node-RED の画面上で Amazon Alexa と回路をつなげていきます。
+
+//image[2-7-1][Node-RED の初期画面]
 
 （書く： Node-RED の画面操作）
 
